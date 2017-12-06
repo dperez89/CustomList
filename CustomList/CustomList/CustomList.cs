@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable 
     {
         private int count;
         private int capacity = 6;
@@ -44,6 +44,10 @@ namespace CustomList
             list[count] = input;
             count++;
         }
+        public void Remove (T input)
+        {
+
+        }
         public void IncreaseCapacity()
         {
             capacity += 6;
@@ -54,6 +58,11 @@ namespace CustomList
             }
             list = newList;
 
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+                        
         }
     }
 }
