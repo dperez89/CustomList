@@ -119,5 +119,40 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(list[0], expectedLetter);
         }
-    }
+        [TestMethod]
+        public void RemoveFromArray_OneCharInput_ReturnArrayCount()
+        {
+            //Arrange
+            CustomList<char> list = new CustomList<char>() { 'a', 'b', 'c' };
+            char removeThisLetter = 'a';
+            int expectedCount = 2;
+            //Act
+            list.Remove(removeThisLetter);
+            //Assert
+            Assert.AreEqual(list.Count, expectedCount);
+        }
+        //--------------------------FLOAT DATATYPE----------------------------------------
+        [TestMethod]
+        public void RemoveFromArray_OneFloatInput_ReturnArrayElement()
+        {
+            CustomList<float> list = new CustomList<float>() { 3400000000000000, 3400000000000001};
+            float removeThisNumber = 3400000000000000;
+            float expectedNumber = 3400000000000001;
+            //Act
+            list.Remove(removeThisNumber);
+            //Assert
+            Assert.AreEqual(list[0], expectedNumber);
+        }
+        [TestMethod]
+        public void RemoveFromArray_OneFloatInput_ReturnArrayCount()
+        {
+            //Arrange
+            CustomList<float> list = new CustomList<float>() { 3400000000000000, 3400000000000001 };
+            float removeThisNumber = 3400000000000000;
+            int expectedCount = 1;
+            //Act
+            list.Remove(removeThisNumber);
+            //Assert
+            Assert.AreEqual(list.Count, expectedCount);
+        }
 }
