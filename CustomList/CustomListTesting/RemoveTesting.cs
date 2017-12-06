@@ -8,13 +8,14 @@ namespace CustomListTesting
     [TestClass]
     class RemoveTesting
     {
+        //--------------------------STRING DATATYPE----------------------------------------
         [TestMethod]
         public void RemoveFromArray_OneStringInput_ReturnArrayElement()
         {
             //Arrange
             CustomList<string> list = new CustomList<string>() { "red", "green", "blue" };
-            string removeThisWord = "blue";
-            string expectedWord = "green";
+            string removeThisWord = "green";
+            string expectedWord = "blue";
             //Act
             list.Remove(removeThisWord);
             //Assert
@@ -25,7 +26,7 @@ namespace CustomListTesting
         {
             //Arrange
             CustomList<string> list = new CustomList<string>() { "red", "green", "blue" };
-            string removeThisWord = "blue";
+            string removeThisWord = "green";
             int expectedCount = 2;
             //Act
             list.Remove(removeThisWord);
@@ -44,7 +45,7 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(expectedWord, list[0]);
         }
-        [TestMethod]
+        [TestMethod] //NEEDS AN EXTRA CHECK
         public void RemoveFromArray_OneStringInput_ReturnTrue()
         {
             //Arrange
@@ -56,7 +57,7 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(expectedStatus, true);
         }
-        [TestMethod]
+        [TestMethod] //NEEDS TO AN EXTRA CHECK
         public void RemoveFromArray_OneStringInput_ReturnFalse()
         {
             //Arrange
@@ -72,13 +73,51 @@ namespace CustomListTesting
         public void RemoveFromArray_OneEmptyStringInput_ReturnArrayElement()
         {
             //Arrange
-            CustomList<string> list = new CustomList<string>() { "red", "" };
+            CustomList<string> list = new CustomList<string>() { "red", "" ,"blue"};
             string removeThisWord = "";
-            string expectedWord = "red";
+            string expectedWord = "blue";
             //Act
             list.Remove(removeThisWord);
             //Assert
-            Assert.AreEqual(list[0], expectedWord);
+            Assert.AreEqual(list[1], expectedWord);
+        }
+
+        //--------------------------INT DATATYPE----------------------------------------
+        [TestMethod]
+        public void RemoveFromArray_OneIntInput_ReturnArrayElement()
+        {
+            //Arrange
+            CustomList<int> list = new CustomList<int>() { 1, 2, 3 };
+            int removeThisNumber = 1;
+            int expectedNumber = 2;
+            //Act
+            list.Remove(removeThisNumber);
+            //Assert
+            Assert.AreEqual(list[0], expectedNumber);
+        }
+        [TestMethod]
+        public void RemoveFromArray_OneIntInput_ReturnArrayCount()
+        {
+            //Arrange
+            CustomList<int> list = new CustomList<int>() { 1, 2, 3 };
+            int removeThisNumber = 1;
+            int expectedCount = 2;
+            //Act
+            list.Remove(removeThisNumber);
+            //Assert
+            Assert.AreEqual(list.Count, expectedCount);
+        }
+        //--------------------------CHAR DATATYPE----------------------------------------
+        [TestMethod]
+        public void RemoveFromArray_OneCharInput_ReturnArrayElement()
+        {
+            CustomList<char> list = new CustomList<char>() { 'a', 'b', 'c' };
+            char removeThisLetter = 'a';
+            char expectedLetter = 'b';
+            //Act
+            list.Remove(removeThisLetter);
+            //Assert
+            Assert.AreEqual(list[0], expectedLetter);
         }
     }
 }
