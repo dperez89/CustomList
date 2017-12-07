@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomList
+namespace MyCustomList
 {
     public class CustomList<T> : IEnumerable
     {
@@ -93,6 +93,10 @@ namespace CustomList
             {
                 yield return list[i];
             }
+        }
+        public static CustomList<T> operator+ (CustomList<T> listOne, CustomList<T> listTwo)
+        {
+
         }
     }
 }

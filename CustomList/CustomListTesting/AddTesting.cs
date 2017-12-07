@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CustomList;
+using MyCustomList;
 using System.Collections.Generic;
 
 namespace CustomListTesting

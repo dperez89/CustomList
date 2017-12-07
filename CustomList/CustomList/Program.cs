@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomList
+namespace MyCustomList
 {
     class Program
     {
         static void Main(string[] args)
         {
             //Arrange
-            CustomList<string> listOne = new CustomList<string>() { "one", "two", "three" };
+            CustomList<string> listOne = new CustomList<string>() { "one", null, "three" };
             CustomList<string> listTwo = new CustomList<string>();
 
             //Act
@@ -19,6 +19,7 @@ namespace CustomList
             {
                 listTwo.Add(element);
             }
+            bool areEqual = listOne.Equals(listTwo);
         }
     }
 }
