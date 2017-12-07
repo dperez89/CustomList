@@ -8,7 +8,7 @@ namespace CustomListTesting
     [TestClass]
     class RemoveTesting
     {
-        //--------------------------STRING DATATYPE----------------------------------------
+        //--------------------------STRING DATATYPE TESTS------------------------------------
         [TestMethod]
         public void RemoveFromArray_OneStringInput_ReturnArrayElement()
         {
@@ -45,7 +45,7 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(expectedWord, list[0]);
         }
-        [TestMethod] //NEEDS AN EXTRA CHECK
+        [TestMethod]
         public void RemoveFromArray_OneStringInput_ReturnTrue()
         {
             //Arrange
@@ -57,7 +57,7 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(expectedStatus, true);
         }
-        [TestMethod] //NEEDS TO AN EXTRA CHECK
+        [TestMethod]
         public void RemoveFromArray_OneStringInput_ReturnFalse()
         {
             //Arrange
@@ -73,7 +73,7 @@ namespace CustomListTesting
         public void RemoveFromArray_OneEmptyStringInput_ReturnArrayElement()
         {
             //Arrange
-            CustomList<string> list = new CustomList<string>() { "red", "" ,"blue"};
+            CustomList<string> list = new CustomList<string>() { "red", "", "blue" };
             string removeThisWord = "";
             string expectedWord = "blue";
             //Act
@@ -82,7 +82,7 @@ namespace CustomListTesting
             Assert.AreEqual(list[1], expectedWord);
         }
 
-        //--------------------------INT DATATYPE----------------------------------------
+        //--------------------------INT DATATYPE TESTS------------------------------------
         [TestMethod]
         public void RemoveFromArray_OneIntInput_ReturnArrayElement()
         {
@@ -107,7 +107,7 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(list.Count, expectedCount);
         }
-        //--------------------------CHAR DATATYPE----------------------------------------
+        //--------------------------CHAR DATATYPE TESTS------------------------------------
         [TestMethod]
         public void RemoveFromArray_OneCharInput_ReturnArrayElement()
         {
@@ -131,11 +131,11 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(list.Count, expectedCount);
         }
-        //--------------------------FLOAT DATATYPE----------------------------------------
+        //--------------------------FLOAT DATATYPE TESTS------------------------------------
         [TestMethod]
         public void RemoveFromArray_OneFloatInput_ReturnArrayElement()
         {
-            CustomList<float> list = new CustomList<float>() { 3400000000000000, 3400000000000001};
+            CustomList<float> list = new CustomList<float>() { 3400000000000000, 3400000000000001 };
             float removeThisNumber = 3400000000000000;
             float expectedNumber = 3400000000000001;
             //Act
@@ -155,4 +155,5 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(list.Count, expectedCount);
         }
+    }
 }

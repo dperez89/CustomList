@@ -46,7 +46,20 @@ namespace CustomList
         }
         public void Remove (T input)
         {
-
+            bool wasItemFound = false;
+            for(int i = 0; i <= Count; i++)
+            {
+                if(list[i].Equals(input))
+                {
+                    wasItemFound = true;
+                    for(int j = i; j <= Count; j++)
+                    {
+                        list[i] = list[i + 1];
+                    }
+                    break;                    
+                }
+                break;
+            }            
         }
         public void IncreaseCapacity()
         {
@@ -62,7 +75,8 @@ namespace CustomList
 
         public IEnumerator GetEnumerator()
         {
-                        
+            int i = 0;
+            yield return i;                
         }
     }
 }

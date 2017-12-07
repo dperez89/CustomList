@@ -21,6 +21,17 @@ namespace CustomListTesting
             Assert.AreEqual(testInput, actualResult);            
         }
         [TestMethod]
+        public void AddToArrayWithElements_OneString_ReturnArrayElement()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>() { "ready", "set" };
+            string addThisWord = "go";
+            //Act
+            list.Add(addThisWord);
+            //Assert
+            Assert.AreEqual(list[2], addThisWord);
+        }
+        [TestMethod]
         public void AddToArray_TwoString_ReturnArrayElement()
         {
             //Arrange
