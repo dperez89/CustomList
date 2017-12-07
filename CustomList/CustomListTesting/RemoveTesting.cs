@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace CustomListTesting
 {
     [TestClass]
-    class RemoveTesting
+    public class RemoveTesting
     {
         //--------------------------STRING DATATYPE TESTS------------------------------------
         [TestMethod]
@@ -39,7 +39,7 @@ namespace CustomListTesting
             //Arrange
             CustomList<string> list = new CustomList<string>() { "red" };
             string removeThisWord = "red";
-            string expectedWord = "";
+            string expectedWord = null;
             //Act
             list.Remove(removeThisWord);
             //Assert
