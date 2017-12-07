@@ -9,10 +9,22 @@ namespace CustomList
 {
     public class CustomList<T> : IEnumerable 
     {
+        private int iterationCount;
         private int count;
         private int capacity = 6;
         private T[] list;
 
+        public int IterationCount
+        {
+            get
+            {
+                return iterationCount;
+            }
+            set
+            {
+                iterationCount = value;
+            }
+        }
         public int Count
         {
             get
@@ -77,8 +89,9 @@ namespace CustomList
 
         public IEnumerator GetEnumerator()
         {
-            int i = 0;
-            yield return i;                
+            IterationCount = 0;
+            for (int i = 0; i <= Count; i++)
+                yield return list[i];
         }
     }
 }
