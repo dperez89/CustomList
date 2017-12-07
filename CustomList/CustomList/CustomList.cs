@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T> : IEnumerable 
+    public class CustomList<T> : IEnumerable
     {
         private int iterationCount;
         private int count;
@@ -56,17 +56,17 @@ namespace CustomList
             list[count] = input;
             count++;
         }
-        public void Remove (T input)
+        public void Remove(T input)
         {
-            for(int i = 0; i < Count; i++)
+            for (int i = 0; i < Count; i++)
             {
-                if(list[i].Equals(input))
-                {                    
+                if (list[i].Equals(input))
+                {
                     AdjustArray(input, i);
                     count--;
                     return;
                 }
-            }            
+            }
         }
         public void AdjustArray(T input, int i)
         {
@@ -79,7 +79,7 @@ namespace CustomList
         {
             capacity += 6;
             T[] newList = new T[capacity];
-            for(int i = 0; i <= count; i++)
+            for (int i = 0; i <= count; i++)
             {
                 newList[i] = list[i];
             }
@@ -89,9 +89,10 @@ namespace CustomList
 
         public IEnumerator GetEnumerator()
         {
-            IterationCount = 0;
-            for (int i = 0; i <= Count; i++)
+            for (int i = 0; i < Count; i++)
+            {
                 yield return list[i];
+            }
         }
     }
 }

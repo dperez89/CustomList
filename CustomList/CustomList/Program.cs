@@ -10,7 +10,15 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
+            //Arrange
+            CustomList<string> listOne = new CustomList<string>() { "one", "two", "three" };
+            CustomList<string> listTwo = new CustomList<string>();
 
+            //Act
+            foreach (string element in listOne)
+            {
+                listTwo.Add(element);
+            }
         }
     }
 }

@@ -10,17 +10,6 @@ namespace CustomListTesting
     public class IterationTesting
     {
         [TestMethod]
-        public void RunForEachLoop_CustomStringList_ReturnCounter()
-        {
-            //Arrange
-            CustomList<string> list = new CustomList<string>() { "one", "two", "three", "four" };
-            int expectedCounter = 4;
-            //Act
-            list.GetEnumerator();
-            //Assert
-            Assert.AreEqual(expectedCounter, list.IterationCount);
-        }
-        [TestMethod]
         public void RunForEachLoop_TwoStringLists_ReturnStringListIdenticalToOriginal()
         {
             //Arrange
@@ -33,8 +22,46 @@ namespace CustomListTesting
                 listTwo.Add(element);
             }
             //Assert
-            Assert.Equals(listOne, listTwo);
+            for(int i = 0; i < listOne.Count; i++)
+            {
+                Assert.AreEqual(listOne[i], listTwo[i]);
+            }
+        }
+        [TestMethod]
+        public void RunForEachLoop_TwoIntLists_ReturnStringListIdenticalToOriginal()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> listTwo = new CustomList<int>();
 
+            //Act
+            foreach (int element in listOne)
+            {
+                listTwo.Add(element);
+            }
+            //Assert
+            for (int i = 0; i < listOne.Count; i++)
+            {
+                Assert.AreEqual(listOne[i], listTwo[i]);
+            }
+        }
+        [TestMethod]
+        public void RunForEachLoop_TwoCharLists_ReturnStringListIdenticalToOriginal()
+        {
+            //Arrange
+            CustomList<char> listOne = new CustomList<char>() { 'a','b','c' };
+            CustomList<char> listTwo = new CustomList<char>();
+
+            //Act
+            foreach (char element in listOne)
+            {
+                listTwo.Add(element);
+            }
+            //Assert
+            for (int i = 0; i < listOne.Count; i++)
+            {
+                Assert.AreEqual(listOne[i], listTwo[i]);
+            }
         }
     }
 }
