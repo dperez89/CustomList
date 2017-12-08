@@ -50,4 +50,5 @@ namespace CustomListTesting
             Assert.AreEqual(listFour[2], listThree[0]);
 
         }
+    }
 }

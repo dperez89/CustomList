@@ -96,6 +96,18 @@ namespace MyCustomList
         }
         public static CustomList<T> operator+ (CustomList<T> listOne, CustomList<T> listTwo)
         {
+            CustomList<T> newList = new CustomList<T>();
+            int listOneCount = listOne.Count;
+            int listTwoCount = listTwo.Count;
+            for (int i = 0; i < listOne.Count; i++)
+            {
+                newList[i] = listOne[i];
+            }
+            for (int i = listOne.Count; i < (listOne.Count + listTwo.Count); i++)
+            {
+                newList[i] = listTwo[i - listTwo.Count];
+            }
+            return newList;
 
         }
     }
