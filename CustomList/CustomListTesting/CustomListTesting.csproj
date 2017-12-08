@@ -53,6 +53,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="+OperatorOverloadTesting.cs" />
+    <Compile Include="-OperatorOverload.cs" />
     <Compile Include="AddTesting.cs" />
     <Compile Include="IterationTesting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

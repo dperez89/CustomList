@@ -25,11 +25,26 @@ namespace MyCustomList
                 iterationCount = value;
             }
         }
+        public int Capacity
+        {
+            get
+            {
+                return capacity;
+            }
+            set
+            {
+                capacity = value;
+            }
+        }
         public int Count
         {
             get
             {
                 return count;
+            }
+            set
+            {
+                count = value;
             }
         }
         public T this[int index]
@@ -96,19 +111,41 @@ namespace MyCustomList
         }
         public static CustomList<T> operator+ (CustomList<T> listOne, CustomList<T> listTwo)
         {
+            int j = 0;
             CustomList<T> newList = new CustomList<T>();
+            if (newList.Capacity < (listOne.Count + listTwo.Count))
+            {
+                newList.IncreaseCapacity();
+            }
             int listOneCount = listOne.Count;
             int listTwoCount = listTwo.Count;
             for (int i = 0; i < listOne.Count; i++)
             {
                 newList[i] = listOne[i];
+                newList.Count++;
             }
             for (int i = listOne.Count; i < (listOne.Count + listTwo.Count); i++)
             {
-                newList[i] = listTwo[i - listTwo.Count];
+                newList[i] = listTwo[j];
+                newList.Count++;
+                j++;
             }
             return newList;
 
+        }
+        public static CustomList<T> operator- (CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            for (int i = 0; i < listTwo.Count; i++)
+            {
+                for (int j = 0; j < listOne.Count; j++)
+                {
+                    if(listTwo[i].Equals(listOne[j]))
+                    {
+                        listOne.Remove(listOne[j]);
+                    }
+                }
+            }
+            return listOne;
         }
     }
 }

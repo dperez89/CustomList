@@ -10,16 +10,12 @@ namespace MyCustomList
     {
         static void Main(string[] args)
         {
-            //Arrange
-            CustomList<string> listOne = new CustomList<string>() { "one", null, "three" };
-            CustomList<string> listTwo = new CustomList<string>();
-
+            CustomList<string> listOne = new CustomList<string>() { "Hello", "World" };
+            CustomList<string> listTwo = new CustomList<string>() { "Hello" };
+            CustomList<string> listThree = new CustomList<string>();
+            string expectedWord = "World";
             //Act
-            foreach (string element in listOne)
-            {
-                listTwo.Add(element);
-            }
-            bool areEqual = listOne.Equals(listTwo);
+            listThree = listOne - listTwo;
         }
     }
 }
