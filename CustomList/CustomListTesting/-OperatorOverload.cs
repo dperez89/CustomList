@@ -9,7 +9,7 @@ namespace CustomListTesting
     public class _OperatorOverload
     {
         [TestMethod]
-        public void SubtractFromArray_OneStringList_ReturnArrayElement()
+        public void OverloadSubtractionOperator_TwoStringLists_ReturnArrayElement()
         {
             //Arrange
             CustomList<string> listOne = new CustomList<string>() { "Hello", "World" };
@@ -23,7 +23,7 @@ namespace CustomListTesting
             
         }
         [TestMethod]
-        public void SubtractFromArray_OneStringListWithMultipleMatches_ReturnArrayElement()
+        public void OverloadSubtractionOperator_TwoStringListsWithMultipleMatches_ReturnArrayElement()
         {
             //Arrange
             CustomList<string> listOne = new CustomList<string>() { "Hello", "World","Again" };
@@ -34,10 +34,9 @@ namespace CustomListTesting
             listThree = listOne - listTwo;
             //Assert
             Assert.AreEqual(listThree[0], expectedWord);
-
         }
         [TestMethod]
-        public void SubtractFromArray_OneStringListWithMultipleMatchesReversedOrdered_ReturnArrayElement()
+        public void OverloadSubtractionOperator_TwoStringListWithMultipleMatchesReversedOrdered_ReturnArrayElement()
         {
             //Arrange
             CustomList<string> listOne = new CustomList<string>() { "Hello", "World","Again","And","Again" };
@@ -49,6 +48,33 @@ namespace CustomListTesting
             //Assert
             Assert.AreEqual(listThree[0], wordToExpect);
 
+        }
+        [TestMethod]
+        public void OverloadSubtractionOperator_TwoIntLists_ReturnArrayElement()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>() { 1, 2 };
+            CustomList<int> listTwo = new CustomList<int>() { 1 };
+            CustomList<int> listThree = new CustomList<int>();
+            int expectedNumber = 2;
+            //Act
+            listThree = listOne - listTwo;
+            //Assert
+            Assert.AreEqual(listThree[0], expectedNumber);
+
+        }
+        [TestMethod]
+        public void OverloadSubtractionOperator_TwoIntListsWithMultipleMatches_ReturnArrayElement()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>() { 1, 2, 3 };
+            CustomList<int> listTwo = new CustomList<int>() { 1, 2 };
+            CustomList<int> listThree = new CustomList<int>();
+            int expectedNumber = 3;
+            //Act
+            listThree = listOne - listTwo;
+            //Assert
+            Assert.AreEqual(listThree[0], expectedNumber);
         }
     }
 }
